@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Youssef Ahmed — Flutter Developer</title>
+<meta name="description" content="Youssef Ahmed — Flutter developer (Android & iOS) in Cairo. 11 apps live on Google Play and the App Store across healthcare, AI, HR and commerce. Open to remote, GCC and Egypt roles.">
+<meta property="og:title" content="Youssef Ahmed — Flutter Developer">
+<meta property="og:description" content="11 production apps live on Google Play and the App Store. Healthcare, AI, HR, commerce, and Unity 360° experiences.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d12; --bg-2:#11141b; --card:#151923; --line:#232836;
+    --text:#e8eaf0; --muted:#9aa1b2; --accent:#3ddbd9; --accent-2:#5b8cff;
+    --radius:16px; --max:1080px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f7f8fb; --bg-2:#ffffff; --card:#ffffff; --line:#e3e6ee;
+      --text:#121521; --muted:#5a6275; --accent:#0a9e9c; --accent-2:#2f5fe0; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:saturate(1.4) blur(12px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:"Space Grotesk";font-weight:700;font-size:1.1rem}
+  .logo span{color:var(--accent)}
+  .links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
+  .links a:hover{color:var(--text)}
+  @media(max-width:720px){.links{display:none}}
+
+  /* hero */
+  .hero{padding:96px 0 72px}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin-bottom:28px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#2fd47a;box-shadow:0 0 0 4px color-mix(in srgb,#2fd47a 25%,transparent)}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);max-width:15ch}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:24px 0 36px}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid var(--line);transition:transform .15s,border-color .15s}
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:64px}
+  .stat{background:var(--bg-2);padding:24px}
+  .stat b{display:block;font-family:"Space Grotesk";font-size:2rem}
+  .stat span{color:var(--muted);font-size:.88rem}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  section{padding:72px 0}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(1.7rem,3.5vw,2.3rem)}
+  .sec-head p{color:var(--muted);max-width:48ch}
+
+  /* projects */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:color-mix(in srgb,var(--accent) 60%,var(--line));transform:translateY(-3px)}
+  .card.wide{grid-column:1/-1;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 12%,var(--card)),var(--card) 60%)}
+  .card-top{display:flex;align-items:center;gap:14px}
+  .icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-family:"Space Grotesk";font-weight:700;color:#fff;font-size:1rem;flex-shrink:0}
+  .card h3{font-size:1.35rem}
+  .card .meta{font-size:.82rem;color:var(--muted)}
+  .card p{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.78rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .card .actions{display:flex;gap:16px;margin-top:auto;padding-top:6px;font-weight:600;font-size:.9rem}
+  .card .actions a{color:var(--accent)}
+  .card .actions a:hover{text-decoration:underline}
+  .badge{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:6px;background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent)}
+
+  /* more apps */
+  .more{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--muted);font-size:.9rem}
+  .more a{border:1px solid var(--line);padding:6px 12px;border-radius:10px}
+  .more a:hover{border-color:var(--accent);color:var(--text)}
+
+  /* experience */
+  .timeline{border-left:2px solid var(--line);margin-left:6px}
+  .job{position:relative;padding:0 0 40px 32px}
+  .job::before{content:"";position:absolute;left:-8px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+  .job h3{font-size:1.25rem}
+  .job .when{color:var(--muted);font-size:.88rem;margin:4px 0 12px}
+  .job ul{padding-left:18px;color:var(--muted)}
+  .job li{margin-bottom:6px}
+  .job li b{color:var(--text);font-weight:600}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.skills{grid-template-columns:1fr}}
+  .skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .skill h3{font-size:1rem;margin-bottom:12px;color:var(--accent)}
+
+  /* contact */
+  .contact{text-align:center;padding:96px 0}
+  .contact h2{font-size:clamp(2rem,5vw,3.2rem);max-width:18ch;margin:0 auto 16px}
+  .contact p{color:var(--muted);margin-bottom:32px}
+  .contact .btns{justify-content:center}
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">youssef<span>.</span>dev</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag"><span class="dot"></span> Open to remote · GCC · Egypt</div>
+    <h1>I build Flutter apps that <em>ship and stay live.</em></h1>
+    <p class="lead">I'm Youssef Ahmed, a Flutter developer in Cairo with 4+ years of experience. I have <strong>11 apps live on Google Play and the App Store</strong>, covering healthcare programs, AI assistants, HR platforms and on-demand commerce. I've also started building 360° experiences in Unity.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See my work ↓</a>
+      <a class="btn" href="Youssef_Ahmed_CV.pdf" download>Download CV</a>
+      <a class="btn" href="https://www.linkedin.com/in/youssef-ahmed-26416b209/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/YoussefAhmed10" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>11</b><span>apps live on both stores</span></div>
+      <div class="stat"><b>4+</b><span>years shipping Flutter</span></div>
+      <div class="stat"><b>8</b><span>apps built at Orevan</span></div>
+      <div class="stat"><b>~300</b><span>attendees at my 360° event</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>Client code is private. These apps are live, and you can install them from the store links.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#7a2a8c,#c2185b)">ID</div>
+          <div><h3>IDRAAK</h3><div class="meta">Orevan · Healthcare · Android & iOS</div></div>
+        </div>
+        <p>A patient-support program app for healthcare providers. Doctors enroll patients digitally, capture consent, track treatment and adherence, and receive real-time program updates.</p>
+        <div class="chips"><span class="chip">Clean Architecture</span><span class="chip">Bloc</span><span class="chip">Dio</span><span class="chip">Digital consent</span></div>
+        <div class="actions">
+          <a href="https://play.google.com/store/apps/details?id=com.orevan.idraaak" target="_blank" rel="noopener">Google Play ↗</a>
+          <a href="https://apps.apple.com/eg/app/idraak/id6752282289" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#9c1c4a,#e0507a)">AI</div>
+          <div><h3>Orvi AI</h3><div class="meta">Orevan · AI · Android & iOS</div></div>
+        </div>
+        <p>An AI assistant for medical teams. Users ask questions in plain language and get short answers drawn from their training material. Each answer cites the slide or page it came from, and users can keep a search history and export answer cards.</p>
+        <div class="chips"><span class="chip">AI search UX</span><span class="chip">Source citations</span><span class="chip">Export</span></div>
+        <div class="actions">
+          <a href="https://play.google.com/store/apps/details?id=com.orevan.orviai" target="_blank" rel="noopener">Google Play ↗</a>
+          <a href="https://apps.apple.com/app/orvi-ai/id6752252569" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#0ea5d8,#38bdf8)">HR</div>
+          <div><h3>HR KLIX</h3><div class="meta">LinkedGates · HR / Enterprise · Android & iOS</div></div>
+        </div>
+        <p>An HR self-service app. Employees handle attendance, leave requests and payslips (with PDF export). Managers approve requests, post announcements and view reports. The whole app works in both Arabic and English.</p>
+        <div class="chips"><span class="chip">Approval workflows</span><span class="chip">PDF export</span><span class="chip">RTL</span><span class="chip">Offline cache</span></div>
+        <div class="actions">
+          <a href="https://play.google.com/store/apps/details?id=com.linkedgates.hrklix" target="_blank" rel="noopener">Google Play ↗</a>
+          <a href="https://apps.apple.com/us/app/hrklix/id1496639364" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#2a2356,#4b3fa0)">V!</div>
+          <div><h3>Vooo Shop <span class="badge">1K+ · 4.3★</span></h3><div class="meta">LinkedGates · On-demand delivery · Android & iOS</div></div>
+        </div>
+        <p>A delivery app for merchants. Shops can request a courier at any hour, manage several branches from one account and track each branch's orders.</p>
+        <div class="chips"><span class="chip">Multi-branch</span><span class="chip">Order tracking</span><span class="chip">Maps</span></div>
+        <div class="actions">
+          <a href="https://play.google.com/store/apps/details?id=com.linkedGates.VoooManagment" target="_blank" rel="noopener">Google Play ↗</a>
+          <a href="https://apps.apple.com/us/app/vooo-shop/id1527639517" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+      </article>
+
+      <article class="card wide">
+        <div class="card-top">
+          <div class="icon" style="background:linear-gradient(135deg,#0a9e9c,#5b8cff)">360°</div>
+          <div><h3>360° Virtual Event</h3><div class="meta">Orevan · Unity · Desktop & mobile web</div></div>
+        </div>
+        <p>A browser-based 360° virtual venue I built in Unity for the <strong>1st Gaucher Experts Council · GCC</strong>. It runs on desktop and mobile, and about 300 people attended the event in it.</p>
+        <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span><span class="chip">~300 attendees</span></div>
+        <div class="actions"><a href="https://360.orevan.org/gaucher_sanofi/" target="_blank" rel="noopener">Open the live event ↗</a></div>
+      </article>
+    </div>
+
+    <div class="more">
+      More live apps:
+      <a href="https://play.google.com/store/apps/details?id=com.orevan.addx" target="_blank" rel="noopener">AD Dx</a>
+      <a href="https://play.google.com/store/apps/details?id=com.orvilabs.orevan" target="_blank" rel="noopener">Orvi Labs</a>
+      <a href="https://play.google.com/store/apps/details?id=com.orevan.scienceondemannd" target="_blank" rel="noopener">Science on Demand</a>
+      <a href="https://play.google.com/store/apps/details?id=com.orevan.orvi_pms" target="_blank" rel="noopener">Orvi PMS</a>
+      <a href="https://play.google.com/store/apps/details?id=com.LinkedGates.vooo_menue" target="_blank" rel="noopener">Vooo Menu</a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="job">
+        <h3>Flutter Developer · Orevan</h3>
+        <div class="when">January 2025 – Present · Healthcare & pharma digital solutions</div>
+        <ul>
+          <li>Built and shipped <b>8 production apps</b> for Android and iOS, covering healthcare programs, AI, lab services, HR and events.</li>
+          <li>Built <b>patient-support and diagnostic apps</b> with digital enrollment, consent capture, adherence tracking and lab-result visibility.</li>
+          <li>Built <b>Orvi AI</b>, a natural-language assistant whose answers cite their source material.</li>
+          <li>Built a <b>360° virtual event in Unity</b> for a GCC experts council, attended by about 300 people.</li>
+          <li>Built real-time background location tracking on Firebase, and cut screen load times on mid-range devices.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Flutter Developer · LinkedGates</h3>
+        <div class="when">July 2022 – January 2025 · HR & on-demand commerce</div>
+        <ul>
+          <li>Developed and maintained <b>HR KLIX, Vooo Shop and Vooo Menu</b> over many release cycles.</li>
+          <li>Moved legacy code to Clean Architecture with Bloc and Provider, which reduced regressions on data-heavy screens.</li>
+          <li>Added offline-first storage with Hive and SQLite, and fixed critical production crashes.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Freelance Flutter Developer</h3>
+        <div class="when">December 2022 – July 2025 · Part-time</div>
+        <ul>
+          <li>Built client apps end to end, from requirements to release on both stores. The work included payment flows, third-party SDKs and offline sync.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Toolkit</h2></div>
+    <div class="skills">
+      <div class="skill"><h3>Mobile & architecture</h3><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Clean Architecture</span><span class="chip">SOLID</span><span class="chip">DI</span><span class="chip">Bloc / Cubit</span><span class="chip">Provider</span></div></div>
+      <div class="skill"><h3>Data & backend</h3><div class="chips"><span class="chip">REST</span><span class="chip">Dio</span><span class="chip">Hive</span><span class="chip">SQLite</span><span class="chip">Firebase RTDB</span><span class="chip">FCM</span><span class="chip">Offline sync</span></div></div>
+      <div class="skill"><h3>Product & delivery</h3><div class="chips"><span class="chip">Payments</span><span class="chip">Google Maps</span><span class="chip">Background location</span><span class="chip">Arabic / RTL</span><span class="chip">Unity</span><span class="chip">Play Console</span><span class="chip">App Store Connect</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Have an app to build? Let's talk.</h2>
+    <p>I'm open to remote roles, on-site roles in the GCC, and roles in Egypt.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:yousef.ahmed124239@gmail.com">yousef.ahmed124239@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/youssef-ahmed-26416b209/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Youssef_Ahmed_CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Youssef Ahmed · Cairo, Egypt</span>
+    <span>Arabic (native) · English (professional)</span>
+  </div>
+</footer>
+
+</body>
+</html>
